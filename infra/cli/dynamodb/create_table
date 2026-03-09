@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+TABLE_NAME=$1
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+EXIST_TABLE=$(aws dynamodb list-tables --query "TableNames[?@=='$TABLE_NAME']" --output text)
+
+if [ -z $EXIST_TABLE ]; then
+
+    echo "creating dynamodb table "
+    aws dynamodb create-table \
+        --table-name $TABLE_NAME \
+        --attribute-definitions AttributeName=id,AttributeType=S \
+        --key-schema AttributeName=id,KeyType=HASH \
+        --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+        --tags Key=Owner,Value=DotnetLambda
+
+    aws dynamodb wait table-exists $TABLE_NAME
+fi
+
+echo "Insert data if not exists"
+
+aws dynamodb batch-write-item \
+    --request-items file://$SCRIPT_DIR/request-items.json  \
+    --return-consumed-capacity INDEXES \
+    --return-item-collection-metrics SIZE

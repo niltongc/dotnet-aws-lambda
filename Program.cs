@@ -1,3 +1,6 @@
+using Amazon.DynamoDBv2;
+using Amazon.Runtime;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +12,7 @@ builder.Services.AddOpenApi();
 // builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 
+builder.Services.AddAWSService<IAmazonDynamoDB>();
 
 var app = builder.Build();
 

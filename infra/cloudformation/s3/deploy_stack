@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "== create s3 bucket via cloudformation"
+
+STACK_NAME="cfn-s3"
+
+#"$(dirname "$0") is used to allow run scrip in any relative path
+
+aws cloudformation deploy \
+--template-file "$(dirname "$0")/create_bucket.yaml" \
+--stack-name $STACK_NAME

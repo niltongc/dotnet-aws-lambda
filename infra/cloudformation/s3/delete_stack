@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "== delete stack dynamodb via CFN"
+
+STACK_NAME="cfn-s3"
+
+aws cloudformation delete-stack \
+--stack-name $STACK_NAME

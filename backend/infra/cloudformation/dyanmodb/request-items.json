@@ -1,0 +1,31 @@
+{
+    "users": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {"S": "3b48f2da-6501-4c9c-8773-b7be051c6f0f"},
+                    "name": {"S": "nano"},
+                    "email": {"S": "nano@nano.com"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {"S": "09da026f-fbb8-48fc-a1f0-0888b173d108"},
+                    "name": {"S": "robot"},
+                    "email": {"S": "robot@robot.com"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {"S": "c5065b27-8ccc-42ce-8792-0231a0e037c5"},
+                    "name": {"S": "phi"},
+                    "email": {"S": "phi@phi.com"}
+                }
+            }
+        }
+    ]
+}

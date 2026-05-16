@@ -5,6 +5,8 @@ using Amazon.KeyManagementService;
 using Amazon.KeyManagementService.Model;
 using dotenv.net;
 using Microsoft.AspNetCore.Http;
+using AWS.Cryptography.DbEncryptionSDK.DynamoDb;
+using AWS.Cryptography.MaterialProviders;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 
@@ -29,7 +31,6 @@ public class UserEncryptedController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateUser([FromBody] UserDto user)
     {
-        var envVars = DotEnv.Read();
         
         var encryptRequest = new EncryptRequest
         {

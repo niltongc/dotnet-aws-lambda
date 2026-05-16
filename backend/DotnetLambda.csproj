@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer.Hosting" Version="1.10.0" />
+    <PackageReference Include="AWS.Cryptography.DbEncryptionSDK.DynamoDb" Version="3.9.1" />
+    <PackageReference Include="AWS.Cryptography.MaterialProviders" Version="2.0.0" />
     <PackageReference Include="AWSSDK.Core" Version="4.0.6.1" />
-    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.15" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.18.1" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.23" />
     <PackageReference Include="AWSSDK.KeyManagementService" Version="4.0.10.1" />
     <PackageReference Include="AWSSDK.S3" Version="4.0.18.8" />
